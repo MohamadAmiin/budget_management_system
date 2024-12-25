@@ -1,0 +1,36 @@
+@use './variables' as *;
+
+// Responsive Mixin
+@mixin respond($breakpoint) {
+  @if $breakpoint == 'sm' {
+    @media (max-width: $breakpoint-sm) { @content; }
+  } @else if $breakpoint == 'md' {
+    @media (max-width: $breakpoint-md) { @content; }
+  } @else if $breakpoint == 'lg' {
+    @media (max-width: $breakpoint-lg) { @content; }
+  } @else if $breakpoint == 'xl' {
+    @media (max-width: $breakpoint-xl) { @content; }
+  } @else if $breakpoint == '2xl' {
+    @media (max-width: $breakpoint-2xl) { @content; }
+  }
+}
+
+// Centering Flexbox Mixin
+@mixin center-flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+// Button Styles
+@mixin button-style($bg-color, $text-color) {
+  background-color: $bg-color;
+  color: $text-color;
+  padding: $spacing-unit * 2 $spacing-unit * 4;
+  border-radius: $spacing-unit;
+  text-transform: uppercase;
+  font-weight: bold;
+  &:hover {
+    background-color: darken($bg-color, 10%);
+  }
+}
